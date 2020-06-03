@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Healthy85</string>
+    <string name="amount_hint">Input food weight(Units: g) </string>
+    <string name="choose">choose food type</string>
+    <string name="calories">cal</string>
 </resources>
