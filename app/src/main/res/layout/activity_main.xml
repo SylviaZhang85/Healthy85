@@ -25,9 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorbtn"
-        android:onClick="onClick"
-
-
+        android:onClick="openOne"
         android:text="@string/choose" />
 <EditText
     android:id="@+id/amount"
@@ -53,7 +51,7 @@
         android:background="@color/colorbtn"
         android:onClick="onClick"
 
-        android:text="@string/choose"
+        android:text="SAVE"
 
         />
 </LinearLayout>
