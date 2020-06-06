@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void  onClick(View btn){
-         String str=amount.getText().toString();
+
+        String calorie= getIntent().getStringExtra("calories");
+        String[] strArr = calorie.split("\\/");
+        float calories = Float.parseFloat(strArr[0])/Float.parseFloat(strArr[1]);
+        String str=amount.getText().toString();
          float am=0;
          if(str.length()>0){
              am=Float.parseFloat(str);
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
          }
 
              if(btn.getId()==R.id.btn_calculate){
-             float cal=am*11.2f;
+             float cal=am*calories;
              show.setText(String.valueOf(cal));
          }
 

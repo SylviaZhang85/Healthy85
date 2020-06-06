@@ -1,11 +1,15 @@
 package com.swufe.healthy85;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,7 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class FoodActivity extends ListActivity implements Runnable{
+public class FoodActivity extends ListActivity implements Runnable, AdapterView.OnItemClickListener {
     Handler handler;
     private ArrayList<HashMap<String,String>> listItems;
     private SimpleAdapter listItemAdapter;
@@ -53,6 +57,8 @@ public class FoodActivity extends ListActivity implements Runnable{
 
 
         };
+        getListView().setOnItemClickListener(this);
+
     }
 
 
@@ -136,8 +142,8 @@ public class FoodActivity extends ListActivity implements Runnable{
                 String reg = "[^\u4e00-\u9fa5]";
                 String str1 = str.replaceAll(reg, "");
 
-                String str2 = strs.replaceAll("[\u4e00-\u9fa5]+", "");
-
+                String abc2 = strs.replaceAll("[\u4e00-\u9fa5]+", "");
+                String str2 = abc2.replaceAll("\\(|\\)", "");
                 HashMap<String,String>map =new HashMap<String,String>();
 
                 map.put("ItemTitle",str1);
@@ -150,9 +156,41 @@ public class FoodActivity extends ListActivity implements Runnable{
         }catch(InterruptedException e){
             e.printStackTrace();
         }
+
         Message msg=handler.obtainMessage(7);
         msg.obj=retList;
         handler.sendMessage(msg);
-    }}
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.i(TAG,"onItemClick:parent="+parent);
+        Log.i(TAG,"onItemClick:view="+view);
+        Log.i(TAG,"onItemClick:position="+position);
+        Log.i(TAG,"onItemClick:id="+id);
+        getListView().getItemAtPosition(position);
+        HashMap<String,String> map =(HashMap<String,String>)getListView().getItemAtPosition(position);
+        String titleStr = map.get("ItemTitle");
+        String detailStr = map.get("ItemDetail");
+        Log.i(TAG,"onItemClick:titleStr="+ titleStr);
+        Log.i(TAG,"onItemClick:detailStr="+ detailStr);
+
+        TextView title=(TextView)view.findViewById(R.id.itemTitle);
+        TextView detail=(TextView)view.findViewById(R.id.itemDetail);
+        String title2 = String.valueOf(title.getText());
+        String detail2 = String.valueOf(detail.getText());
+        Log.i(TAG,"onItemClick:title2="+title2);
+        Log.i(TAG,"onItemClick:detail2="+detail2);
+        //打开新的页面传入参数
+        Intent MainActivity = new Intent(this,MainActivity.class);
+
+        MainActivity.putExtra("calories",detailStr);
+        startActivity(MainActivity);
+
+    }
+
+
+}
 
 
