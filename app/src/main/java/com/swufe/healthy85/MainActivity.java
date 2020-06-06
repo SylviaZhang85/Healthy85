@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     EditText amount;
     TextView show;
+    TextView showFood;
+
+
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -20,14 +23,24 @@ public class MainActivity extends AppCompatActivity {
 
         amount=(EditText)findViewById(R.id.amount);
         show=(TextView)findViewById(R.id.showOut);
+        showFood=(TextView)findViewById(R.id.showFood);
+
 
 
     }
     public void  onClick(View btn){
-
+        String title =getIntent().getStringExtra("title");
         String calorie= getIntent().getStringExtra("calories");
-        String[] strArr = calorie.split("\\/");
-        float calories = Float.parseFloat(strArr[0])/Float.parseFloat(strArr[1]);
+        float calories=0;
+        if(calorie!=null&&title!=null){
+            String[] strArr = calorie.split("\\/");
+            calories = Float.parseFloat(strArr[0])/Float.parseFloat(strArr[1]);
+            showFood.setText(title);
+        }else{
+            showFood.setText("Haven't chosen food yet");
+        }
+
+
         String str=amount.getText().toString();
          float am=0;
          if(str.length()>0){

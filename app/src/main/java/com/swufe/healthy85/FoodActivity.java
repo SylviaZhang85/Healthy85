@@ -184,7 +184,7 @@ public class FoodActivity extends ListActivity implements Runnable, AdapterView.
         Log.i(TAG,"onItemClick:detail2="+detail2);
         //打开新的页面传入参数
         Intent MainActivity = new Intent(this,MainActivity.class);
-
+        MainActivity.putExtra("title",titleStr);
         MainActivity.putExtra("calories",detailStr);
         startActivity(MainActivity);
 
