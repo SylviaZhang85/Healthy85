@@ -1,14 +1,18 @@
 package com.swufe.healthy85;
 
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     EditText amount;
@@ -60,5 +64,20 @@ public class MainActivity extends AppCompatActivity {
         Intent food=new Intent(this,FoodActivity.class);
         startActivity(food);
     }
+    public void Click(View v){
+        Calendar calendar=Calendar.getInstance();
+        new DatePickerDialog( this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                String text = "你选择了：" + year + "年" + (month + 1) + "月" + dayOfMonth + "日";
+                Toast.makeText( MainActivity.this, text, Toast.LENGTH_SHORT ).show();
+            }
+        }
+                ,calendar.get(Calendar.YEAR)
+                ,calendar.get(Calendar.MONTH)
+                ,calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+
 
 }
