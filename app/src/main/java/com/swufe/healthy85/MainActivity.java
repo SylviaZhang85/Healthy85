@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openOne(View btn){
         //打开food页面
-        Intent food=new Intent(this,FoodActivity.class);
+        Intent food=new Intent(this,ConfigActivity.class);
         startActivity(food);
     }
     public void Click(View v){

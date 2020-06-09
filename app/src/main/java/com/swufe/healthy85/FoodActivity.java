@@ -82,7 +82,6 @@ public class FoodActivity extends ListActivity implements Runnable, AdapterView.
         String detailStr = map.get("ItemDetail");
         Log.i(TAG,"onItemClick:titleStr="+ titleStr);
         Log.i(TAG,"onItemClick:detailStr="+ detailStr);
-
         TextView title=(TextView)view.findViewById(R.id.itemTitle);
         TextView detail=(TextView)view.findViewById(R.id.itemDetail);
         String title2 = String.valueOf(title.getText());
@@ -183,14 +182,12 @@ public class FoodActivity extends ListActivity implements Runnable, AdapterView.
         Log.i(TAG,"onItemClick:title2="+title2);
         Log.i(TAG,"onItemClick:detail2="+detail2);
         //打开新的页面传入参数
-        Intent MainActivity = new Intent(this,MainActivity.class);
-        MainActivity.putExtra("title",titleStr);
-        MainActivity.putExtra("calories",detailStr);
-        startActivity(MainActivity);
+        Intent ConfigActivity = new Intent(this,ConfigActivity.class);
+        ConfigActivity.putExtra("title",titleStr);
+        ConfigActivity.putExtra("calories",detailStr);
+        startActivity(ConfigActivity);
 
     }
 
 
 }
-
-
