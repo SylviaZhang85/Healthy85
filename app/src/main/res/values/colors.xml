@@ -3,6 +3,19 @@
     <color name="colorPrimary">#5D9B77</color>
     <color name="colorPrimaryDark">#488B55</color>
     <color name="colorAccent">#DFD591</color>
-    <color name="colorbtn">#F5EE9B</color>
-    <color name="warn">#FFC107</color>
+    <color name="colorbtn">#A5CCB5</color>
+    <color name="grains">#E4C7E5</color>
+    <color name="vegetables">#EEA7A7</color>
+    <color name="btn_text">#FCF7F7</color>
+    <color name="fruit">#A3DFA5</color>
+    <color name="meat">#B7E4E9</color>
+    <color name="eggs">#F5EE9B</color>
+    <color name="aquatic">#F1ADC3</color>
+    <color name="dairy">#FFC880</color>
+    <color name="oil">#81A0AD</color>
+    <color name="snack">#A7ADCC</color>
+    <color name="sugar">#7E57E2AA</color>
+    <color name="drink">#B7B05F5F</color>
+    <color name="fung">#E6EE9A</color>
+    <color name="elsee">#75B4254E</color>
 </resources>

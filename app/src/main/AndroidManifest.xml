@@ -15,7 +15,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ConfigActivity"></activity>
+        <activity android:name=".FoodActivity13"></activity>
+        <activity android:name=".FoodActivity12" />
+        <activity android:name=".FoodActivity11" />
+        <activity android:name=".FoodActivity10" />
+        <activity android:name=".FoodActivity9" />
+        <activity android:name=".FoodActivity8" />
+        <activity android:name=".FoodActivity7" />
+        <activity android:name=".FoodActivity6" />
+        <activity android:name=".FoodActivity5" />
+        <activity android:name=".FoodActivity4" />
+        <activity android:name=".FoodActivity3" />
+        <activity android:name=".FoodActivity2" />
+        <activity android:name=".ConfigActivity" />
 
         <meta-data
             android:name="com.google.android.actions"

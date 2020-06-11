@@ -8,6 +8,19 @@
     <string name="input_food_name">Input food name</string>
     <string name="foodCalories">Calories /g</string>
     <string name="input_food_calories">Input food calories</string>
-    <string name="add_document">ADD</string>
+    <string name="add_document">A D D</string>
+    <string name="Grains">Grains/beans</string>
+    <string name="vegetable">Vegetables</string>
+    <string name="fruit">fruit</string>
+    <string name="Meat">meat</string>
+    <string name="eggs">eggs</string>
+    <string name="aquatic">The aquatic</string>
+    <string name="dairy">dairy</string>
+    <string name="oil">fat</string>
+    <string name="snack">Pastry snacks</string>
+    <string name="sugar">sugar</string>
+    <string name="drinks">drinks</string>
+    <string name="fungus">The fungus algae</string>
+    <string name="elsee">ELSE</string>
 
 </resources>

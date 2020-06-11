@@ -11,34 +11,245 @@
     android:orientation="vertical"
     tools:context="com.swufe.healthy85.ConfigActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="41dp"
-        android:layout_height="41dp"
-        android:background="@android:drawable/ic_input_add"
-        android:text="@string/choose"
-        android:onClick="openList"
-        android:gravity="center"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="119dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/grains"
+            android:gravity="center"
+            android:onClick="openList"
+            android:text="@string/Grains"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="113dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/vegetables"
+            android:gravity="center"
+            android:onClick="openList_veg"
+            android:text="@string/vegetable"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="68dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/fruit"
+            android:gravity="center"
+            android:onClick="openList_fui"
+            android:text="@string/fruit"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="72dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/meat"
+            android:gravity="center"
+            android:onClick="openList_mea"
+            android:text="@string/Meat"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="72dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/eggs"
+            android:gravity="center"
+            android:onClick="openList_egg"
+            android:text="@string/eggs"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="109dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/aquatic"
+            android:gravity="center"
+            android:onClick="openList_aqu"
+            android:text="@string/aquatic"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="62dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/dairy"
+            android:gravity="center"
+            android:onClick="openList_dairy"
+            android:text="@string/dairy"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/oil"
+            android:gravity="center"
+            android:onClick="openList_oil"
+            android:text="@string/oil"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="70dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/elsee"
+            android:gravity="center"
+            android:onClick="openList_elsee"
+            android:text="@string/elsee"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="122dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/snack"
+            android:gravity="center"
+            android:onClick="openList_sna"
+            android:text="@string/snack"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="56dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/sugar"
+            android:gravity="center"
+            android:onClick="openList_sug"
+            android:text="@string/sugar"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="55dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/drink"
+            android:gravity="center"
+            android:onClick="openList_drink"
+            android:text="@string/drinks"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="141dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/fung"
+            android:gravity="center"
+            android:onClick="openList_fung"
+            android:text="@string/fungus"
+            android:textColor="@color/btn_text"
+            android:textStyle="bold"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/foodName"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:text="@string/foodName"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            />
 
         <EditText
             android:id="@+id/change_food_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/input_food_name"
@@ -59,7 +270,9 @@
             android:layout_weight="1"
             android:text="@string/foodCalories"
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp" />
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/change_food_clories"
@@ -67,7 +280,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-
+            android:layout_marginTop="15dp"
             android:hint="@string/input_food_calories"
             android:inputType="text" />
 
@@ -75,11 +288,16 @@
 
     <Button
         android:id="@+id/btn_add"
-        android:layout_width="match_parent"
+        android:layout_width="134dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="50dp"
         android:background="@color/colorbtn"
-        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:onClick="onClickMain"
-        android:text="@string/add_document" />
+        android:text="@string/add_document"
+        android:textColor="@color/btn_text"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class FoodActivity extends ListActivity implements Runnable, AdapterView.OnItemClickListener {
-    //水产类
+public class FoodActivity9 extends ListActivity implements Runnable, AdapterView.OnItemClickListener {
+    //糕点小吃
 
 
 
@@ -50,7 +50,7 @@ public class FoodActivity extends ListActivity implements Runnable, AdapterView.
 
                 if (msg.what == 7) {
                     List<HashMap<String, String>> list2 = (List<HashMap<String, String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(FoodActivity.this, list2,
+                    listItemAdapter = new SimpleAdapter(FoodActivity9.this, list2,
                             R.layout.list_item,
                             new String[]{"ItemTitle", "ItemDetail"},
                             new int[]{R.id.itemTitle, R.id.itemDetail}
@@ -132,10 +132,10 @@ public class FoodActivity extends ListActivity implements Runnable, AdapterView.
             Log.i(TAG,"run:"+ doc.title());
             Elements uls=doc.getElementsByTag("ul");
 
-            Element table8 = uls.get(7);
+            Element table11= uls.get(10);
             //获取TD中数据
 
-            Elements lis=table8.getElementsByTag("li");
+            Elements lis=table11.getElementsByTag("li");
             for(int i=4;i<lis.size();i++){
 
                 Element td1=lis.get(i);
