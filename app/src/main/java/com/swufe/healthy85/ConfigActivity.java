@@ -39,4 +39,18 @@ public class ConfigActivity extends AppCompatActivity {
         Intent foodList=new Intent(this,FoodActivity.class);
         startActivity(foodList);
     }
-}
+
+    public void  onClickMain(View btn){
+
+        fName=(EditText)findViewById(R.id.change_food_name);
+        fCalorie=(EditText)findViewById(R.id.change_food_clories);
+
+        String foodN = String.valueOf(fName.getText());
+        String foodC = String.valueOf(fCalorie.getText());
+
+        Intent MainActivity = new Intent(this,MainActivity.class);
+        MainActivity.putExtra("title",foodN);
+        MainActivity.putExtra("calories",foodC);
+        startActivity(MainActivity);
+
+    }}

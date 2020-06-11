@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     EditText amount;
     TextView show;
     TextView showFood;
-
-
+    String title=null;
+    String calorie=null;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -33,12 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void  onClick(View btn){
-        String title =getIntent().getStringExtra("title");
-        String calorie= getIntent().getStringExtra("calories");
+        title =getIntent().getStringExtra("title");
+        calorie= getIntent().getStringExtra("calories");
         float calories=0;
         if(calorie!=null&&title!=null){
-            String[] strArr = calorie.split("\\/");
-            calories = Float.parseFloat(strArr[0])/Float.parseFloat(strArr[1]);
+           calories=Float.parseFloat(calorie);
             showFood.setText(title);
         }else{
             showFood.setText("Haven't chosen food yet");

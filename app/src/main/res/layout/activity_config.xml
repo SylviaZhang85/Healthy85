@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorbtn"
         android:layout_marginTop="10dp"
-
+        android:onClick="onClickMain"
         android:text="@string/add_document" />
 
 </LinearLayout>
