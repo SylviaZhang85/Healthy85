@@ -4,15 +4,20 @@ package com.swufe.healthy85;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText amount;
@@ -20,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView showFood;
     String title=null;
     String calorie=null;
-
+    String TAG="Food";
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 String text = "你选择了：" + year + "年" + (month + 1) + "月" + dayOfMonth + "日";
+                String date=year+"-"+(month+1)+"-"+dayOfMonth;
                 Toast.makeText( MainActivity.this, text, Toast.LENGTH_SHORT ).show();
             }
         }
@@ -78,5 +84,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.history,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.menu_set){
+            FoodItem item1=new FoodItem("1234a","123","1233");
+            FoodManager manager=new FoodManager(this);
+            manager.add(item1);
+            manager.add(new FoodItem("1234b","23.5","12344"));
+            Log.i(TAG,"onOptionItemSelected:写入数据完毕");
+
+            //查询所有数据
+            List<FoodItem>testList=manager.listAll();
+            for(FoodItem i:testList){
+                Log.i(TAG,"onOptionItemSelected:取出数据[id="+i.getId()+"]Date="+i.getDate()+"FoodType="+i.getFoodType()+"Calories="+i.getCalories());
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
