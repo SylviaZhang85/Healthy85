@@ -6,103 +6,54 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class HistoryActivity extends ListActivity implements Runnable, AdapterView.OnItemClickListener{
-
-
+public class HistoryActivity extends ListActivity implements Runnable{
 
     Handler handler;
-    private ArrayList<HashMap<String,String>> listItems;
-    private SimpleAdapter listItemAdapter;
-    private final String TAG="App";
     protected void onCreate(Bundle savedInstanceState) {
 
-
-            super.onCreate(savedInstanceState);
-            //setContentView(R.layout.activity_history);
-
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_main);
 
 
-        initListView();
-        this.setListAdapter(listItemAdapter);
 
+
+        Thread t = new Thread(this);
+        t.start();
         handler = new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 if (msg.what == 7) {
-                    List<HashMap<String, String>> list2 = (List<HashMap<String, String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(HistoryActivity.this, list2,
-                            R.layout.list_item,
-                            new String[]{"ItemTitle", "ItemDetail"},
-                            new int[]{R.id.Datee, R.id.foodDetail}
-                    );
-                    setListAdapter(listItemAdapter);
+                    @SuppressLint("HandlerLeak") List<String> list2 = (List<String>) msg.obj;
+                    ListAdapter adapter = new ArrayAdapter<>(HistoryActivity.this, android.R.layout.simple_list_item_1, list2);
+                    setListAdapter(adapter);
                 }
                 super.handleMessage(msg);
-            };
-
-
+            }
         };
-        getListView().setOnItemClickListener(this);
-
-    }
-
-    private void initListView(){
-        listItems = new ArrayList<HashMap<String, String>>();
-        for(int i = 0;i<10;i++){
-            HashMap<String,String>map= new HashMap<String,String>();
-            map.put("ItemTitle","Rate:"+i);//标题文字
-            map.put("ItemDetail","detail"+i);//详情描述
-            listItems.add(map);
-        }
-        //生成适配器的Item和动态数组对应的元素
-        listItemAdapter = new SimpleAdapter(this,listItems,
-                R.layout.list_item,
-                new String[]{"ItemTitle","ItemDetail"},
-                new int[]{R.id.Datee,R.id.foodDetail}
-        );
     }
 
     @Override
     public void run() {
-        List<HashMap<String,String>>fooList = new ArrayList<HashMap<String, String>>();
+        List<String> fooList=new ArrayList<>();
         FoodManager manager = new FoodManager(this);
-
         for(FoodItem item :manager.listAll())
 
         {
-            HashMap<String,String>map =new HashMap<String,String>();
-            String da=item.getDate();
-            String foodDe=item.getFoodType()+item.getCalories();
-            map.put("ItemTitle",da);
-            map.put("ItemDetail",foodDe);
-
-            fooList.add(map);
-
-            Log.i("TAG","onOptionItemSelected:取出数据[id="+item.getId()+"]Date="+item.getDate()+"FoodType="+item.getFoodType()+"Calories="+item.getCalories());
+            fooList.add("日期:"+item.getDate()+"\n"+
+                    "食物:" +item.getFoodType()+"\n" +
+                    "卡路里:"+item.getCalories());
         }
         Message msg = handler.obtainMessage(7);
         //msg.what = 7;
         msg.obj =fooList;
         handler.sendMessage(msg);
     }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        getListView().getItemAtPosition(position);
-        HashMap<String,String> map =(HashMap<String,String>)getListView().getItemAtPosition(position);
-    }
 }
-
