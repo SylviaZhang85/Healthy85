@@ -26,6 +26,41 @@ public class FoodManager {
         db.insert(TBNAME,null,values);
         db.close();}
 
+    public void addAll(List<FoodItem> list){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        for (FoodItem item : list) {
+            ContentValues values = new ContentValues();
+            values.put("Date", item.getDate());
+            values.put("FoodType", item.getFoodType());
+            values.put("Calories", item.getCalories());
+            db.insert(TBNAME, null, values);
+        }
+        db.close();
+    }
+
+    public void deleteAll(){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete(TBNAME,null,null);
+        db.close();
+    }
+
+    public void delete(int id){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete(TBNAME, "ID=?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void update(FoodItem item){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("Date", item.getDate());
+        values.put("FoodType", item.getFoodType());
+        values.put("Calories", item.getCalories());
+        db.update(TBNAME, values, "ID=?", new String[]{String.valueOf(item.getId())});
+        db.close();
+    }
+
+
     public List<FoodItem> listAll(){
         List<FoodItem>foodList=null;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -45,5 +80,20 @@ public class FoodManager {
         }
         db.close();
         return foodList;
+    }
+    public FoodItem findById(int id){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(TBNAME, null, "ID=?", new String[]{String.valueOf(id)}, null, null, null);
+        FoodItem foodItem = null;
+        if(cursor!=null && cursor.moveToFirst()){
+            foodItem = new FoodItem();
+            foodItem.setId(cursor.getInt(cursor.getColumnIndex("ID")));
+            foodItem.setDate(cursor.getString(cursor.getColumnIndex("DATE")));
+            foodItem.setFoodType(cursor.getString(cursor.getColumnIndex("FOODTYPE")));
+            foodItem.setCalories(cursor.getString(cursor.getColumnIndex("CALORIES")));
+            cursor.close();
+        }
+        db.close();
+        return foodItem;
     }
 }
