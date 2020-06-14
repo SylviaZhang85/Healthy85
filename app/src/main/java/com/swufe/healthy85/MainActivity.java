@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     String title=null;
     String calorie=null;
     String TAG="Food";
-    String date,calor;
-    int years,months,day;
+    public static String date;
+    String calor;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -51,16 +51,16 @@ public class MainActivity extends AppCompatActivity {
         new DatePickerDialog( this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view,int year, int month, int dayOfMonth) {
-                years=year;
-                months=month;
-                day=dayOfMonth;
+
                 if(year!=0&&month!=0&&dayOfMonth!=0){
-                String text = "你选择了：" + year + "年" + (month + 1) + "月" + dayOfMonth + "日";
-                date=year+"-"+(month+1)+"-"+dayOfMonth;
-                Toast.makeText( MainActivity.this, text, Toast.LENGTH_SHORT ).show();}
-            else{
-                Toast.makeText( MainActivity.this,"请选择日期", Toast.LENGTH_SHORT ).show();
-            }}
+                    String text = "你选择了：" + year + "年" + (month + 1) + "月" + dayOfMonth + "日";
+
+                    date=year+"-"+(month+1)+"-"+dayOfMonth;
+                    Log.i(TAG,"date的值="+date);
+                    Toast.makeText( MainActivity.this, text, Toast.LENGTH_SHORT ).show();}
+                else{
+                    Toast.makeText( MainActivity.this,"请选择日期", Toast.LENGTH_SHORT ).show();
+                }}
         }
                 ,calendar.get(Calendar.YEAR)
                 ,calendar.get(Calendar.MONTH)
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             calor=String.valueOf(cal);
             show.setText(calor);
         }
+        Log.i(TAG,"王一博老婆的date="+date);
         if(date!=null&&title!=null&&calor!=null) {
             FoodItem fitem = new FoodItem(date, title, calor);
             FoodManager manager = new FoodManager(this);
@@ -105,24 +106,25 @@ public class MainActivity extends AppCompatActivity {
             for(FoodItem i:testList){
                 Log.i(TAG,"onOptionItemSelected:取出数据[id="+i.getId()+"]Date="+i.getDate()+"FoodType="+i.getFoodType()+"Calories="+i.getCalories());
             }
-            }
         }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.history,menu);
-            return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.history,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.menu_set){
+            Intent history = new Intent(this, HistoryActivity.class);
+            startActivity(history);
         }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            if(item.getItemId()==R.id.menu_set){
-                Intent history = new Intent(this, HistoryActivity.class);
-                startActivity(history);
-            }
 
 
 
-
-            return super.onOptionsItemSelected(item);
-        }}
+        return super.onOptionsItemSelected(item);
+    }}
