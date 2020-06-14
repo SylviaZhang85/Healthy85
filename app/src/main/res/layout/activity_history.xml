@@ -16,13 +16,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/itemTitle"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/drink"
         android:textSize="20sp"/>
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/itemDetail"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:gravity="end"/>
 
 

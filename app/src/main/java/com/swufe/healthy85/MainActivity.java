@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             calor=String.valueOf(cal);
             show.setText(calor);
         }
-        Log.i(TAG,"王一博老婆的date="+date);
+
         if(date!=null&&title!=null&&calor!=null) {
             FoodItem fitem = new FoodItem(date, title, calor);
             FoodManager manager = new FoodManager(this);

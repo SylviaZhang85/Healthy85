@@ -22,12 +22,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class HistoryActivity extends ListActivity implements Runnable {
+public class HistoryActivity extends ListActivity implements Runnable, AdapterView.OnItemLongClickListener {
 
     Handler handler;
-    private ArrayList<HashMap<String,String>> listItems;
+    private ArrayList<HashMap<String, String>> listItems;
     private SimpleAdapter listItemAdapter;
-    private final String TAG="App";
+    private final String TAG = "App";
+    FoodManager manager;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,44 +52,46 @@ public class HistoryActivity extends ListActivity implements Runnable {
                     setListAdapter(listItemAdapter);
                 }
                 super.handleMessage(msg);
-            };
+            }
+
+            ;
 
 
         };
-
+        getListView().setOnItemLongClickListener(this);
 
     }
 
     private void initListView() {
         listItems = new ArrayList<HashMap<String, String>>();
-        for(int i = 0;i<10;i++){
-            HashMap<String,String>map= new HashMap<String,String>();
-            map.put("ItemTitle","Rate:"+i);//标题文字
-            map.put("ItemDetail","detail"+i);//详情描述
+        for (int i = 0; i < 10; i++) {
+            HashMap<String, String> map = new HashMap<String, String>();
+            map.put("ItemTitle", "Rate:" + i);//标题文字
+            map.put("ItemDetail", "detail" + i);//详情描述
             listItems.add(map);
         }
         //生成适配器的Item和动态数组对应的元素
-        listItemAdapter = new SimpleAdapter(this,listItems,
+        listItemAdapter = new SimpleAdapter(this, listItems,
                 R.layout.list_item,
-                new String[]{"ItemTitle","ItemDetail"},
-                new int[]{R.id.itemTitle,R.id.itemDetail}
+                new String[]{"ItemTitle", "ItemDetail"},
+                new int[]{R.id.itemTitle, R.id.itemDetail}
         );
     }
 
     @Override
     public void run() {
-        List<HashMap<String,String>>fooList = new ArrayList<HashMap<String, String>>();
+        List<HashMap<String, String>> fooList = new ArrayList<HashMap<String, String>>();
         listItems = new ArrayList<HashMap<String, String>>();
-        FoodManager manager = new FoodManager(this);
+        manager= new FoodManager(this);
         for (FoodItem item : manager.listAll()) {
 
-            String str1=item.getDate();
-            String str2=item.getFoodType()+"  "+item.getCalories();
+            String str1 = item.getDate();
+            String str2 = item.getFoodType() + "  " + item.getCalories();
 
-            HashMap<String,String>map =new HashMap<String,String>();
+            HashMap<String, String> map = new HashMap<String, String>();
 
-            map.put("ItemTitle",str1);
-            map.put("ItemDetail",str2);
+            map.put("ItemTitle", str1);
+            map.put("ItemDetail", str2);
 
             fooList.add(map);
         }
@@ -97,12 +100,31 @@ public class HistoryActivity extends ListActivity implements Runnable {
         msg.obj = fooList;
         handler.sendMessage(msg);
     }
-    public  void onItemClick(AdapterView<?> parent, View view, int position, long id){
-
-            SharedPreferences sp=getSharedPreferences("Dooddb", Activity.MODE_PRIVATE);
-             Log.i(TAG, String.valueOf(position));
 
 
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, final long id) {
+        Log.i(TAG,"onItemLongClick:长按列表项position"+position);
+        Log.i(TAG,"onItemLongClick:长按列表项id"+id);
+        //删除操作
+        //listItems.remove((position));
+        //listItemAdapter.notifyDataSetChanged();
+        //构造对话框进行确认操作
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("提示").setMessage("请确认是否删除当前数据").setPositiveButton("是", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.i(TAG,"onClick:对话框事件处理");
+                listItems.remove(position);
 
+                listItemAdapter.notifyDataSetChanged();
+            }
+        })
+                .setNegativeButton("否",null);
+        builder.create().show();
+
+
+        Log.i(TAG,"onItemLongClick:size="+listItems.size());
+        return true;
     }
 }
