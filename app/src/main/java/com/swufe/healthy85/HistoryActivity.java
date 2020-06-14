@@ -25,7 +25,7 @@ import java.util.List;
 public class HistoryActivity extends ListActivity implements Runnable, AdapterView.OnItemLongClickListener {
 
     Handler handler;
-    private ArrayList<HashMap<String, String>> listItems;
+    private List<HashMap<String, String>> listItems;
     private SimpleAdapter listItemAdapter;
     private final String TAG = "App";
     FoodManager manager;
@@ -43,8 +43,8 @@ public class HistoryActivity extends ListActivity implements Runnable, AdapterVi
             @Override
             public void handleMessage(@NonNull Message msg) {
                 if (msg.what == 7) {
-                    List<HashMap<String, String>> list2 = (List<HashMap<String, String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(HistoryActivity.this, list2,
+                    listItems = (List<HashMap<String, String>>) msg.obj;
+                    listItemAdapter = new SimpleAdapter(HistoryActivity.this, listItems,
                             R.layout.list_item,
                             new String[]{"ItemTitle", "ItemDetail"},
                             new int[]{R.id.itemTitle, R.id.itemDetail}
@@ -118,6 +118,7 @@ public class HistoryActivity extends ListActivity implements Runnable, AdapterVi
                 listItems.remove(position);
 
                 listItemAdapter.notifyDataSetChanged();
+                manager.delete(position);
             }
         })
                 .setNegativeButton("否",null);
