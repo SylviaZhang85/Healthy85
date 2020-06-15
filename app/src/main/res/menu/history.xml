@@ -5,9 +5,16 @@
     <item
         android:id="@+id/menu_set"
 
-        android:icon="@android:drawable/ic_menu_recent_history"
-        android:title="@string/history"
-        app:showAsAction="always" />
+
+        android:title="历史饮食记录"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_search"
+
+
+        android:title="按日期查找"
+        app:showAsAction="never" />
+
 
 
 </menu>

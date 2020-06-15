@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_my_list2"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    tools:context="com.swufe.healthy85.HistoryActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/Syear"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:entries="@array/year1"
+            android:textSize="40sp"
+
+            />
+
+        <TextView
+            android:id="@+id/textY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yea"
+            android:textSize="30sp"
+
+            />
+
+        <Spinner
+            android:id="@+id/Smonth"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:entries="@array/month1"
+            android:textSize="40sp"
+
+            />
+
+        <TextView
+            android:id="@+id/textM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mmmm"
+            android:textSize="30sp"
+
+            />
+
+        <Spinner
+            android:id="@+id/Sday"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/day1"
+            android:textSize="40sp"
+
+            />
+
+        <TextView
+                android:id="@+id/textD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dday"
+                android:textSize="30sp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:background="@android:drawable/ic_menu_search"
+        android:textColor="@color/btn_text"
+        android:textSize="30sp" />
+
+
+</LinearLayout>

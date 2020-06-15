@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     String TAG="Food";
     public static String date;
     String calor;
+    String date2;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.history,menu);
+
         return true;
     }
 
@@ -123,11 +125,35 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId()==R.id.menu_set){
             Intent history = new Intent(this, HistoryActivity.class);
             startActivity(history);
+        }else if(item.getItemId()==R.id.menu_search){
+            Calendar calendar=Calendar.getInstance();
+            new DatePickerDialog( this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view,int year, int month, int dayOfMonth) {
+
+                    if(year!=0&&month!=0&&dayOfMonth!=0){
+                        String text = "你选择了：" + year + "年" + (month + 1) + "月" + dayOfMonth + "日";
+
+                        date2=year+"-"+(month+1)+"-"+dayOfMonth;
+
+                        Log.i(TAG,"date的值="+date);
+                        Toast.makeText( MainActivity.this, text, Toast.LENGTH_SHORT ).show();}
+                    else{
+                        Toast.makeText( MainActivity.this,"请选择日期", Toast.LENGTH_SHORT ).show();
+                    }}
+
+            }
+                    ,calendar.get(Calendar.YEAR)
+                    ,calendar.get(Calendar.MONTH)
+                    ,calendar.get(Calendar.DAY_OF_MONTH)).show();
         }
 
+if(date2!=null) {
+    Intent hello = new Intent(this, SearchHitoryActivity.class);
+    hello.putExtra("EXTRA_MESSAGE", date2);
+    startActivity(hello);
 
-
-
+}
 
         return super.onOptionsItemSelected(item);
     }}
