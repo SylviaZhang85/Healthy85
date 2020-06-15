@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Healthy85</string>
+    <string name="Grains">谷物</string>
+    <string name="Meat">肉类</string>
+    <string name="add_document">添加</string>
+    <string name="amount_hint">添加食物种类（单位：g）</string>
+    <string name="aquatic">水产</string>
+    <string name="calories">卡</string>
+    <string name="choose">添加食物</string>
+    <string name="choose_date">选择日期</string>
+    <string name="dairy">奶制品</string>
+    <string name="drinks">饮品</string>
+    <string name="eggs">蛋类</string>
+    <string name="elsee">其他</string>
+    <string name="foodCalories">卡/g</string>
+    <string name="foodName">食物名称</string>
+    <string name="fruit">水果</string>
+    <string name="fungus">菌类</string>
+    <string name="history">历史记录</string>
+    <string name="input_food_calories">输入食物热量</string>
+    <string name="input_food_name">输入食物名称</string>
+    <string name="input_search">查找食物</string>
+    <string name="oil">油脂类</string>
+    <string name="search">查找</string>
+    <string name="snack">甜点类</string>
+    <string name="sugar">糖类</string>
+    <string name="vegetable">蔬菜类</string>
+</resources>

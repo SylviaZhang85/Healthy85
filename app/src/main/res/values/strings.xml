@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Healthy85</string>
+    <string name="app_name" translatable="false">Healthy85</string>
     <string name="amount_hint">Input food weight(Units: g) </string>
     <string name="choose">Add food</string>
     <string name="calories">cal</string>
@@ -31,8 +31,9 @@
     <string name="yea">年</string>
     <string name="mmmo">input like 6 or 12</string>
     <string name="mmmm">月</string>
-    <string name="ddddd">input like 6 or 30</string>
+    <string name="ddddd" translatable="false">input like 6 or 30</string>
     <string name="dday">日</string>
+    <string name="Hello">健 康 生 活 第 一 步 </string>
 
     <string-array name="year1">
         <item>2020</item>
