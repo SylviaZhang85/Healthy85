@@ -2,16 +2,31 @@ package com.swufe.healthy85;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ConfigActivity extends AppCompatActivity {
     EditText fName;
     EditText fCalorie;
+    EditText searFood;
+    Button btn;
+    static String butt;
+    Handler handler;
+    private ArrayList<HashMap<String,String>> listItems;
+    private SimpleAdapter listItemAdapter;
+    private final String TAG="App";
+    String key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +115,7 @@ public class ConfigActivity extends AppCompatActivity {
         startActivity(foodList);
     }
 
+
     public void  onClickMain(View btn){
 
         fName=(EditText)findViewById(R.id.change_food_name);
@@ -113,4 +129,20 @@ public class ConfigActivity extends AppCompatActivity {
         MainActivity.putExtra("calories",foodC);
         startActivity(MainActivity);
 
-    }}
+    }
+    private void search(View v) {
+        Log.i("open", "openOne: ");
+        Intent hello = new Intent(this,SearchActivity.class);
+        EditText editText = (EditText) findViewById(R.id.search_food);
+        String message = editText.getText().toString();
+
+
+        hello.putExtra("EXTRA_MESSAGE",message);
+        startActivity(hello);
+
+        }
+
+    }
+
+
+

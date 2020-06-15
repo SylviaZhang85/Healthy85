@@ -11,16 +11,18 @@
     android:paddingTop="16dp"
 
     tools:context="com.swufe.healthy85.MainActivity">
+
     <TextView
         android:id="@+id/app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:text="@string/app_name"
         android:gravity="center"
         android:paddingBottom="20dp"
-        android:textStyle="bold"
-        />
+        android:text="@string/tracer_85"
+
+        android:textColor="@color/colorbtn"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +36,7 @@
             android:layout_weight="1"
             android:background="@color/colorbtn"
             android:onClick="Click"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="@color/btn_text"
             android:text="@string/choose_date"
             android:layout_marginTop="30dp"
@@ -48,7 +50,7 @@
             android:background="@color/colorbtn"
             android:onClick="openOne"
             android:layout_marginLeft="10dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginTop="30dp"
             android:text="@string/choose"
             android:textColor="@color/btn_text"
@@ -62,7 +64,7 @@
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:paddingTop="20dp"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/amount"
@@ -71,14 +73,15 @@
         android:gravity="center"
         android:hint="@string/amount_hint"
         android:inputType="number|numberDecimal"
-        android:textSize="30dp"
+        android:textSize="20dp"
+
         android:paddingBottom="20dp" />
 
     <TextView
         android:id="@+id/showOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:text="@string/calories"
         android:gravity="center"
         android:paddingBottom="20dp"
@@ -94,15 +97,18 @@
         android:background="@color/colorbtn"
         android:onClick="onClick"
         android:text="SAVE"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/btn_text"
         />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/bg3" />
+        android:id="@+id/imageView"
+        android:layout_width="391dp"
+        android:layout_height="274dp"
+        app:srcCompat="@mipmap/bg3"
+
+
+        />
 
 
 </LinearLayout>

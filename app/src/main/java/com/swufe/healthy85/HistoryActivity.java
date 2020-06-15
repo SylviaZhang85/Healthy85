@@ -154,4 +154,4 @@ public class HistoryActivity extends ListActivity implements Runnable, AdapterVi
         Log.i(TAG,"onItemLongClick:size="+listItems.size());
         return true;
 
-}}
+    }}

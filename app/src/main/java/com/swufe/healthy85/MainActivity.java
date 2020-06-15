@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText amount;
+    ImageView pay;
     TextView show;
     TextView showFood;
     String title=null;
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             Intent history = new Intent(this, HistoryActivity.class);
             startActivity(history);
         }
+
 
 
 

@@ -24,4 +24,8 @@
     <string name="elsee">ELSE</string>
     <string name="history">history</string>
 
+    <string name="tracer_85">Tracer 85</string>
+    <string name="search">search</string>
+    <string name="input_search">search food</string>
+
 </resources>

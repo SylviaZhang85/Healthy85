@@ -10,13 +10,11 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical"
-    tools:context="com.swufe.healthy85.FoodActivity">
-
+    tools:context="com.swufe.healthy85.SearchActivity">
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
         android:id="@+id/itemTitle"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"/>
