@@ -27,5 +27,11 @@
     <string name="tracer_85">Tracer 85</string>
     <string name="search">search</string>
     <string name="input_search">search food</string>
+    <string name="yearrr">input year like 2000</string>
+    <string name="yea">年</string>
+    <string name="mmmo">input like 6 or 12</string>
+    <string name="mmmm">月</string>
+    <string name="ddddd">input like 6 or 30</string>
+    <string name="dday">日</string>
 
 </resources>

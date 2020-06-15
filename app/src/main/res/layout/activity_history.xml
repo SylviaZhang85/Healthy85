@@ -12,18 +12,72 @@
     android:orientation="vertical"
     tools:context="com.swufe.healthy85.HistoryActivity">
 
-    <TextView
-        android:layout_width="fill_parent"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/itemTitle"
-        android:textColor="@color/drink"
-        android:textSize="20sp"/>
-    <TextView
-        android:layout_width="fill_parent"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/yearrr"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/textY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yea"
+            android:textSize="20sp"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/itemDetail"
-        android:textSize="20sp"
-        android:gravity="end"/>
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/mmmo"
+            android:textSize="20sp"
+
+            />
+
+        <TextView
+            android:id="@+id/textM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mmmm"
+            android:textSize="20sp"
+
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/ddddd"
+
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/textD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dday"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 
 </LinearLayout>

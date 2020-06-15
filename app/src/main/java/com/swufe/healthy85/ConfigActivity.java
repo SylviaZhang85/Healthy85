@@ -114,7 +114,18 @@ public class ConfigActivity extends AppCompatActivity {
         Intent foodList=new Intent(this,FoodActivity13.class);
         startActivity(foodList);
     }
+    public void onSearch(View btn) {
+        Log.i("open", "openOne: ");
 
+        EditText editText = (EditText) findViewById(R.id.search_food);
+
+        String message = editText.getText().toString();
+
+        Intent hello = new Intent(this,SearchActivity.class);
+        hello.putExtra("EXTRA_MESSAGE",message);
+        startActivity(hello);
+
+    }
 
     public void  onClickMain(View btn){
 
@@ -130,17 +141,7 @@ public class ConfigActivity extends AppCompatActivity {
         startActivity(MainActivity);
 
     }
-    private void search(View v) {
-        Log.i("open", "openOne: ");
-        Intent hello = new Intent(this,SearchActivity.class);
-        EditText editText = (EditText) findViewById(R.id.search_food);
-        String message = editText.getText().toString();
 
-
-        hello.putExtra("EXTRA_MESSAGE",message);
-        startActivity(hello);
-
-        }
 
     }
 

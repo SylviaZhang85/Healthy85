@@ -101,14 +101,6 @@
         android:textColor="@color/btn_text"
         />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="391dp"
-        android:layout_height="274dp"
-        app:srcCompat="@mipmap/bg3"
-
-
-        />
 
 
 </LinearLayout>
