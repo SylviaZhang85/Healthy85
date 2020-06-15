@@ -4,8 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +25,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
+
+
 public class HistoryActivity extends ListActivity implements Runnable, AdapterView.OnItemLongClickListener {
 
     Handler handler;
@@ -29,6 +35,8 @@ public class HistoryActivity extends ListActivity implements Runnable, AdapterVi
     private SimpleAdapter listItemAdapter;
     private final String TAG = "App";
     FoodManager manager;
+    int index=0;
+
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -101,7 +109,6 @@ public class HistoryActivity extends ListActivity implements Runnable, AdapterVi
         handler.sendMessage(msg);
     }
 
-
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, final long id) {
         Log.i(TAG,"onItemLongClick:长按列表项position"+position);
@@ -114,18 +121,37 @@ public class HistoryActivity extends ListActivity implements Runnable, AdapterVi
         builder.setTitle("提示").setMessage("请确认是否删除当前数据").setPositiveButton("是", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Log.i(TAG,"onClick:对话框事件处理");
-                listItems.remove(position);
+                Log.i(TAG, "onClick:对话框事件处理");
 
+                String deleteText = listItems.get(position).get("ItemTitle").toString();
+                Log.i("TAG","Text的值"+deleteText);
+                String det = listItems.get(position).get("ItemDetail").toString();
+                Log.i("TAG","Text的值"+det);
+                String[] spString = det.split("\\s+");
+                String deleteName = spString[0];
+                String deleteCal = spString[1];
+                Log.i("TAG","dN和dC"+deleteName);
+                Log.i("TAG","dN和dC"+deleteCal);
+
+                List<FoodItem>testList=manager.listAll();
+                for(FoodItem i:testList){
+                    if(deleteText.equals(i.getDate())&&deleteName.equals(i.getFoodType())&&deleteCal.equals(i.getCalories())){
+                        index=i.getId();
+                        Log.i("TAG","index"+index);
+                        manager.delete(index);
+
+                    }
+                }
+
+                listItems.remove(position);
                 listItemAdapter.notifyDataSetChanged();
-                manager.delete(position);
-            }
-        })
+
+            }})
                 .setNegativeButton("否",null);
         builder.create().show();
 
 
         Log.i(TAG,"onItemLongClick:size="+listItems.size());
         return true;
-    }
-}
+
+}}
