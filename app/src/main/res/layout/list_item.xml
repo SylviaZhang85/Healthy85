@@ -10,6 +10,7 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical"
+    android:background="@mipmap/bk5"
     tools:context="com.swufe.healthy85.FoodActivity">
 
 

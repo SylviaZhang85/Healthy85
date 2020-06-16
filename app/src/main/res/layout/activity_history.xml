@@ -9,6 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
+    android:background="@mipmap/bk3"
     android:orientation="vertical"
     tools:context="com.swufe.healthy85.HistoryActivity">
 

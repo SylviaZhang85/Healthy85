@@ -9,7 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-
+    android:background="@mipmap/bk2"
     tools:context="com.swufe.healthy85.MainActivity">
 
     <TextView
@@ -72,6 +72,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="@string/amount_hint"
+        android:textStyle="bold"
         android:inputType="number|numberDecimal"
         android:textSize="20dp"
 

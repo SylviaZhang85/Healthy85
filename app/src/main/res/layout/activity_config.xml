@@ -9,6 +9,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:orientation="vertical"
+    android:background="@mipmap/bk6"
     tools:context="com.swufe.healthy85.ConfigActivity">
 
     <LinearLayout
@@ -291,12 +292,12 @@
             android:id="@+id/foodCalories"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_weight="1"
             android:text="@string/foodCalories"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginTop="15dp"
+            android:textColor="#F0F8F3"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/change_food_clories"
